@@ -1,0 +1,98 @@
+//TASK1:QUIZ GAME
+
+
+
+#include <stdio.h>
+
+// Function prototypes
+void displayQuestion(const char *question, const char *options[], char correctAnswer);
+void checkAnswer(char userAnswer, char correctAnswer, int *score);
+void feedback( int score);
+
+int main() {
+    // Array of questions and their options
+    const char *questions[] = {
+        "1. What is the capital of India?",
+        "2. Which planet is known as the Red Planet?",
+        "3. What is the largest ocean on Earth?",
+        "4. Who wrote 'To Kill a Mockingbird'?",
+        "5. What is the hardest natural substance on Earth?",
+        "6. What is the smallest prime number?",
+        "7. In which year did the Titanic sink?",
+        "8. What is the chemical symbol for Gold?",
+        "9. Who painted the Mona Lisa?",
+        "10. What is the largest mammal in the world?"
+    };
+
+    const char *options[][4] = {
+        {"A. Delhi", "B. London", "C. Berlin", "D. Madrid"},
+        {"A. Earth", "B. Venus", "C. Mars", "D. Jupiter"},
+        {"A. Atlantic Ocean", "B. Indian Ocean", "C. Arctic Ocean", "D. Pacific Ocean"},
+        {"A. Harper Lee", "B. Mark Twain", "C. J.K. Rowling", "D. Ernest Hemingway"},
+        {"A. Gold", "B. Diamond", "C. Ruby", "D. Sapphire"},
+        {"A. 1", "B. 2", "C. 3", "D. 5"},
+        {"A. 1900", "B. 1912", "C. 1920", "D. 1930"},
+        {"A. Ag", "B. Au", "C. Pb", "D. Fe"},
+        {"A. Vincent van Gogh", "B. Pablo Picasso", "C. Leonardo da Vinci", "D. Claude Monet"},
+        {"A. Elephant", "B. Blue Whale", "C. Giraffe", "D. Hippopotamus"}
+    };
+
+    // Correct answers
+    char correctAnswers[] = {'A', 'C', 'D', 'A', 'B', 'A', 'B', 'B', 'C', 'B'};
+
+    int score = 0;
+    char userAnswer;
+
+    // Loop through each question
+    for (int i = 0; i < 10; i++) {
+        // Display the question and options
+        displayQuestion(questions[i], options[i], correctAnswers[i]);
+
+        // Get user input
+        printf("Choose the correct option (A, B, C, or D): ");
+        scanf(" %c", &userAnswer);
+
+        // Check the answer and update score
+        checkAnswer(userAnswer, correctAnswers[i], &score);
+        
+        printf("\n"); // Print a blank line for better readability
+    }
+
+    // Display final score
+    printf("Quiz over! Your final score is %d/10\n", score);
+    feedback (score);
+
+    return 0;
+}
+
+// Function to display the question and options
+void displayQuestion(const char *question, const char *options[], char correctAnswer) {
+    printf("%s\n", question);
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n", options[i]);
+    }
+}
+
+ // Function to check  the question and options
+void checkAnswer(char userAnswer, char correctAnswer, int *score) {
+    if (userAnswer == correctAnswer) {
+        printf("Correct!\n");
+        (*score)++;
+    } else {
+        printf("Wrong! The correct answer is %c.\n", correctAnswer);
+    }
+}
+
+// Function to display feedback
+void feedback ( int score){
+    if (score<=7){
+        printf("your performance is average");
+
+    }
+    else if ( (8<=score) && (score<=9)){
+        printf("your performance is good");
+    }
+    else {
+        printf("your performance is best");
+    }
+}
