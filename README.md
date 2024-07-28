@@ -1,3 +1,4 @@
+<img width="1470" alt="Screenshot 2024-07-28 at 10 59 32 PM" src="https://github.com/user-attachments/assets/1855968a-652a-46b3-a661-c99f5e9758ab">
 # CODTECH-TASK1
 Name:BHUMIKA PAPNAI
 Company:CODTECH IT SOLUTIONS
